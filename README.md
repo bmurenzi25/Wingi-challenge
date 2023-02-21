@@ -1,10 +1,12 @@
-[Link to Video]:(https://share.vidyard.com/watch/JCqyVzuczJEQMHhVw7Nqa2?)
+
 
 Architecture: 
 All the base elements are in `src/components/elements`
 we have three pages located in `src/pages/`
 CSS styles are there in `/src/`
 Data logic in `/helper`
+
+Here is the link to video presentation [Link to Video](https://share.vidyard.com/watch/JCqyVzuczJEQMHhVw7Nqa2?)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 

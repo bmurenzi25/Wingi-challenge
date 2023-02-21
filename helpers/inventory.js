@@ -21,12 +21,10 @@ export function createInventory(inventory) {
 
 // update inventory of a product (inputs: productID and Quantity)
 export function updateInventory(id, quantity) {
-    console.log(id)
     const inventories = getInventories() || []
     const inv = getInventory(id)
     if (inv) {
-        const i = inventories.findIndex(inventory => inventory.id);
-
+        const i = inventories.findIndex(inventory => inventory.id === inv.id);
         inventories[i].quantity = quantity;
         localStorage.setItem('inventories', JSON.stringify(inventories))
     }
