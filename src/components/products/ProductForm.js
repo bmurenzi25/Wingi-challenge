@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import styles from '@/styles/Home.module.css'
 import Button from '../elements/Button'
+import Input from '../elements/Input'
 
 export default function ProductForm({ onCreateProduct }) {
   // Set up state for form fields
@@ -37,6 +38,7 @@ export default function ProductForm({ onCreateProduct }) {
     setName('')
     setImage('')
     setCategory('')
+    setDescription('')
     setPrice('')
   }
 
@@ -44,27 +46,30 @@ export default function ProductForm({ onCreateProduct }) {
     <div className='form-wrapper'>
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Name:</label>
-          <input
+          {/* <label htmlFor="name">Name:</label> */}
+          <Input
             type="text"
+            name="Name:"
             id="name"
             value={name}
             onChange={(event) => setName(event.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="image">Image URL:</label>
-          <input
+          {/* <label htmlFor="image">Image URL:</label> */}
+          <Input
             type="text"
+            name="image"
             id="image"
             value={image}
             onChange={(event) => setImage(event.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="image">Price:</label>
-          <input
+          {/* <label htmlFor="image">Price:</label> */}
+          <Input
             type="text"
+            name="Price:"
             id="image"
             value={price}
             onChange={(event) => setPrice(event.target.value)}

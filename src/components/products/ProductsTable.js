@@ -1,6 +1,11 @@
 import Button from "../elements/Button"
+import Link from 'next/link';
 
-const ProductsTable = ({ products }) => {
+const ProductsTable = ({ products, onDeleteProduct }) => {
+
+    const handleDelete = (product) => {
+        onDeleteProduct(product)
+    }
     return (
         <table>
             <thead>
@@ -14,14 +19,17 @@ const ProductsTable = ({ products }) => {
             </thead>
             <tbody>
                 {products.map((product) => (
-                    <tr key={product.id}>
-                        <td>{product.name}</td>
-                        <td>{product.description}</td>
-                        <td>{product.category}</td>
-                        <td>{product.price}</td>
+                    <tr key={product?.id}>
+                        <td>{product?.name && product.name}</td>
+                        <td>{product?.description && product.description}</td>
+                        <td>{product?.category && product.category}</td>
+                        <td>{product?.price && product.price}</td>
                         <td>
                             <Button type='edit'>Edit</Button>
-                            <Button type='delete'>Delete</Button>
+                            <Button type='delete' onClick={() => handleDelete(product)}>Delete</Button>
+                            <Link href={`/products/${product.id}`}>
+                                <Button>Manage Inventory</Button>
+                            </Link>
                         </td>
                     </tr>
                 ))}
