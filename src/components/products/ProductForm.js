@@ -46,7 +46,6 @@ export default function ProductForm({ onCreateProduct }) {
     <div className='form-wrapper'>
       <form onSubmit={handleSubmit}>
         <div>
-          {/* <label htmlFor="name">Name:</label> */}
           <Input
             type="text"
             name="Name:"
@@ -56,7 +55,6 @@ export default function ProductForm({ onCreateProduct }) {
           />
         </div>
         <div>
-          {/* <label htmlFor="image">Image URL:</label> */}
           <Input
             type="text"
             name="image"
@@ -66,11 +64,10 @@ export default function ProductForm({ onCreateProduct }) {
           />
         </div>
         <div>
-          {/* <label htmlFor="image">Price:</label> */}
           <Input
             type="text"
             name="Price:"
-            id="image"
+            id="price"
             value={price}
             onChange={(event) => setPrice(event.target.value)}
           />

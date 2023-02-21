@@ -9,7 +9,7 @@ const ProductItem = ({ product }) => {
           <h1>{product.name && product.name}</h1>
           <ul>
             <li>
-              <h4>Category: {product.category && product.description}</h4>
+              <h4>Category: {product.category && product.category}</h4>
               <p>{product.description && product.description}</p>
               <h4>${product.price && product.price}</h4>
             </li>
