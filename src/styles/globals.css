@@ -121,6 +121,7 @@ h1 {
   background-color: transparent;
   height: 300px;
   perspective: 1000px;
+  margin-bottom: 32px;
 }
 
 .card h1 {
@@ -204,6 +205,7 @@ table {
   width: 100%;
   max-width: 800px;
   margin: 0 auto;
+  margin-bottom: 64px;
 }
 
 th, td {
@@ -293,4 +295,8 @@ textarea {
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
+}
+
+li h4, p {
+  margin-bottom: 2rem;
 }

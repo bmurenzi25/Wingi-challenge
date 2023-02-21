@@ -8,7 +8,7 @@ const ProductGrid = ({ items, isLoading }) => {
       {isLoading ? (
         <Spinner />
       ) : (
-        items.map(item => <ProductItem key={item.id} item={item} />)
+        items && items.map(item => <ProductItem key={item.id} product={item} />)
       )}
     </section>
   );

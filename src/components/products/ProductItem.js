@@ -1,20 +1,17 @@
-import Image from "next/image"
-import ProductGrid from "./ProductGrid"
-import styles from '@/styles/Home.module.css'
-
-const ProductItem = ({ product }) => {2
-    console.log(product);
+const ProductItem = ({ product }) => {
   return (
     <div className='card'>
       <div className='card-inner'>
         <div className='card-front'>
-          <img src="https://img.freepik.com/free-photo/elegant-smartphone-composition_23-2149437106.jpg" />
+          <img src={product.image} />
         </div>
         <div className='card-back'>
-          <h1>Iphone X</h1>
+          <h1>{product.name && product.name}</h1>
           <ul>
             <li>
-              <strong>Apple Ip</strong>
+              <h4>Category: {product.category && product.description}</h4>
+              <p>{product.description && product.description}</p>
+              <h4>${product.price && product.price}</h4>
             </li>
           </ul>
         </div>

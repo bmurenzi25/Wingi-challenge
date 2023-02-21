@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import styles from '@/styles/Home.module.css'
 import Button from '../elements/Button'
 
-export default function ProductForm({ product }) {
+export default function ProductForm({ onCreateProduct }) {
   // Set up state for form fields
   const [name, setName] = useState('')
   const [image, setImage] = useState('')
@@ -10,20 +10,34 @@ export default function ProductForm({ product }) {
   const [category, setCategory] = useState('')
   const [price, setPrice] = useState('')
 
-  useEffect(() => {
-    if (product) {
-      setName(product.name)
-      setImage(product.image)
-      setDescription(product.description)
-      setCategory(product.category)
-      setPrice(product.price)
-    }
-  }, [product])
+  // useEffect(() => {
+  //   if (product) {
+  //     setName(product.name)
+  //     setImage(product.image)
+  //     setDescription(product.description)
+  //     setCategory(product.category)
+  //     setPrice(product.price)
+  //   }
+  // }, [])
 
   // Function to handle form submission
   const handleSubmit = (event) => {
     event.preventDefault()
-    // Do something with form data, for example, submit it to an API
+    const p_details = {
+      id: Date.now(),
+      name,
+      image,
+      description,
+      category,
+      price
+    }
+
+    onCreateProduct(p_details)
+
+    setName('')
+    setImage('')
+    setCategory('')
+    setPrice('')
   }
 
   return (
@@ -53,7 +67,7 @@ export default function ProductForm({ product }) {
             type="text"
             id="image"
             value={price}
-            onChange={(event) => setImage(event.target.value)}
+            onChange={(event) => setPrice(event.target.value)}
           />
         </div>
         <div>
@@ -77,7 +91,7 @@ export default function ProductForm({ product }) {
             <option value="home">Home</option>
           </select>
         </div>
-        <Button type={product ? 'edit' : 'add'}>Save</Button>
+        <Button type='add'>Save</Button>
       </form>
     </div>
   )

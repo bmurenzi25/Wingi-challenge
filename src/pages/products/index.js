@@ -3,7 +3,7 @@ import Input from '@/components/elements/Input'
 import { useEffect, useState } from 'react'
 import styles from '@/styles/Home.module.css'
 import Navbar from '@/components/elements/Navbar';
-import { getAllProducts } from 'helpers/products';
+import { createProduct, getAllProducts } from 'helpers/products';
 import ProductsTable from '@/components/products/ProductsTable';
 import Spinner from '@/components/elements/Spinner';
 import Button from '@/components/elements/Button';
@@ -18,11 +18,15 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await getAllProducts();
-      setItems(data.products)
+      setItems(data)
       setIsLoading(false)
     }
     fetchProducts()
   }, [])
+
+  const handleCreateProduct = (product) => {
+    createProduct(product)
+  }
 
   return (
     <>
@@ -40,8 +44,8 @@ const Products = () => {
         <Spinner />
       ) : (
         <>
-          {showForm && <ProductForm />}
-          <ProductsTable products={items} />
+          {showForm && <ProductForm onCreateProduct={handleCreateProduct} />}
+          {items && <ProductsTable products={items} />}
         </>
       )}
       </div>

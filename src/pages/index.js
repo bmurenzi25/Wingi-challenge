@@ -1,5 +1,3 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 import { getAllProducts } from 'helpers/products'
@@ -19,7 +17,7 @@ export default function Home() {
   useEffect(() => {
     const fetchProducts = async () => {
       const data = await getAllProducts();
-      setItems(data.products)
+      setItems(data)
       setIsLoading(false)
     }
     fetchProducts()
@@ -37,7 +35,7 @@ export default function Home() {
       </main>
       <div className={styles.container}>
         {
-          <ProductGrid isLoading={isLoading} items={items} /> 
+          items && <ProductGrid isLoading={isLoading} items={items} /> 
         }
       </div>
     </>

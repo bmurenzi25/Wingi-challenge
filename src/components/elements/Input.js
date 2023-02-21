@@ -1,4 +1,4 @@
-export default function Input({ id, name, type, autoComplete = false, required = false, placeholder, ...rest }) {
+export default function Input({ id, name, type, autoComplete, required, placeholder, ...rest }) {
     return (
         <div>
             <label htmlFor={id} className="block text-sm font-medium text-gray-700">
